@@ -1,0 +1,1419 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+:root {
+    --square-size: 15px;
+    --square-gap: 5px;
+    --week-width: calc(var(--square-size) + var(--square-gap));
+}
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+
+    transition: .2s linear;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 3%;
+    z-index: 999;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* box-shadow: 1rem 1rem rgba(0,0,0,0.1); */
+    /* background: red; */
+}
+
+.header .left img {
+    width: 2.5rem;
+    margin-right: .5rem;
+}
+
+.header .left {
+    display: flex;
+    align-items: center;
+}
+
+.header .left a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+.header .left #Browse {
+    width: 6rem;
+    /* background: black; */
+}
+
+.header .right {
+    width: 44%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.header .right .in {
+    background: #c5d1d5;
+    width: 20rem;
+    /* height: 3rem; */
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3rem 1rem;
+    border-radius: 50px;
+
+}
+
+.header .right .in span {
+    margin-right: 0.4rem;
+    margin-top: 0.2rem;
+    /* text-align: center; */
+}
+
+.header .right .in span i {
+    font-size: 1rem;
+}
+
+.header .right .in input {
+    width: 100%;
+    background: transparent;
+    color: #000;
+    margin-top: 0.1rem;
+}
+
+.header .right .in input::placeholder {
+    color: #000;
+    font-size: 1rem;
+}
+
+.header .right a {
+    text-decoration: none;
+    color: #000;
+}
+
+.header .right a img {
+    width: 1.2rem;
+    margin-right: .3rem;
+}
+
+.header .right .bell {
+    position: relative;
+}
+
+.header .right .bell span {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    background: yellow;
+    font-size: 1rem;
+    top: -.6rem;
+    font-size: .8rem;
+}
+.header .right #smbell{
+    display: none;
+}
+.header .right #ser{
+    display: none;
+}
+
+.profile {
+    margin-top: 4.6rem;
+    width: 100%;
+    height: 20vh;
+    background-image: url("../Assits/img2.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.profile .left {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile .left  span {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    background: #c1c0c0;
+    margin-right: 1rem;
+    border-radius: 50%;
+    position: relative;
+}
+.profile .left  #pen{
+    font-size: 1rem;
+    padding: .4rem .4rem;
+    background: #000;
+    color: #fff;
+    position: absolute;
+    left: 1.5rem;
+    top: 4.2rem;
+    border-radius: 50px;
+}
+
+.profile .left span i {
+    font-size: 3rem;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.profile .left .details {
+    line-height: .2;
+    color: #fff;
+}
+
+.profile .right {
+    color: #fff;
+}
+
+.con {
+    background: rgb(220, 239, 243);
+    margin-top: 13.8rem;
+    padding: 2rem 2.5rem;
+    position: relative;
+}
+
+.con .about .abo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.con .about .abo .btn {
+    background: rgb(255, 174, 25);
+    padding: .2rem 2rem;
+}
+
+.con .about textarea {
+    width: 100%;
+    resize: none;
+    border-radius: 5px;
+    padding: 1rem 1rem;
+}
+
+.con .map .map-details {
+    width: 100%;
+    /* height: 40vh; */
+    border-radius: 5px;
+    /* background: #fff; */
+}
+
+.con .map .map-details .months {
+    grid-area: months;
+}
+.con .map .map-details .months li {
+    margin-right: 20rem;
+}
+.con .map .map-details .days {
+    grid-area: days;
+}
+
+.con .map .map-details .squares {
+    grid-area: squares;
+}
+
+.con .map .map-details .graph {
+    display: inline-grid;
+    grid-template-areas: "empty months"
+     "days squares";
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+}
+
+.con .map .map-details .months {
+    display: grid;
+    grid-template-columns: calc(var(--week-width) * 5)
+        /* Jan */
+        calc(var(--week-width) * 5)
+        /* Feb */
+        calc(var(--week-width) * 5)
+        /* Mar */
+        calc(var(--week-width) * 5)
+        /* Apr */
+        calc(var(--week-width) * 5)
+        /* May */
+        calc(var(--week-width) * 5)
+        /* Jun */
+        calc(var(--week-width) * 5)
+        /* Jul */
+        calc(var(--week-width) * 5)
+        /* Aug */
+        calc(var(--week-width) * 5)
+        /* Sep */
+        calc(var(--week-width) * 5)
+        /* Oct */
+        calc(var(--week-width) * 5)
+        /* Nov */
+        calc(var(--week-width) * 5)
+        /* Dec */
+    ;
+    list-style: none;
+}
+/* .months li{
+    list-style: none;
+} */
+
+.con .map .map-details .days,
+.con .map .map-details .squares {
+    display: grid;
+    grid-gap: var(--square-gap);
+    grid-template-rows: repeat(7, var(--square-size));
+    list-style: none;
+}
+
+.con .map .map-details .squares {
+    grid-auto-flow: column;
+    grid-auto-columns: var(--square-size);
+}
+
+.con .map .map-details .graph {
+ width: 92%;
+ overflow: hidden;
+}
+
+.con .map .map-details .days li:nth-child(odd) {
+    visibility: hidden;
+}
+
+.con .map .map-details .squares li {
+    background-color: #fff;
+}
+
+.con .map .map-details .squares li[data-level="1"] {
+    background-color: rgb(252, 179, 179);
+}
+
+.squares li[data-level="2"] {
+    background-color: rgb(248, 128, 128);
+}
+
+.con .map .map-details .squares li[data-level="3"] {
+    background-color:rgb(255, 2, 2);
+}
+.con hr {
+    margin: 2rem 0;
+}
+
+.con .web .web-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.con .web .web-details .btn {
+    background: rgb(255, 174, 25);
+    padding: .2rem 2rem;
+}
+
+.web form {
+    width: 100%;
+}
+
+.web form .inputBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.web form .inputBox .input {
+    width: 45%
+}
+
+.web form .inputBox .input span {
+    display: block;
+    padding: .5rem 0;
+    font-weight: bold;
+}
+
+.web form .inputBox .input .in {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 0 1rem;
+    border-radius: .5rem;
+}
+
+.web form .inputBox .input input {
+    width: 100%;
+    padding: .6rem 1rem;
+
+}
+
+.personal .per {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.personal .per .btn {
+    background: rgb(255, 174, 25);
+    padding: .2rem 2rem;
+}
+
+.personal form .inputBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.personal form .inputBox .input {
+    width: 45%;
+    background: #fff;
+}
+
+.personal form .inputBox .input span {
+    display: block;
+    padding: .5rem 0;
+    font-weight: bold;
+    background: rgb(220, 239, 243);
+}
+
+.personal form .inputBox .input #education {
+    width: 98%;
+    padding: .6rem 1rem;
+    border-radius: .8rem;
+
+}
+
+.password .pass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.password .pass .btn {
+    background: rgb(255, 174, 25);
+    padding: .2rem 2rem;
+}
+
+.password .input span {
+    display: block;
+    padding: .5rem 0;
+    font-weight: bold;
+    background: rgb(220, 239, 243);
+}
+
+.password .input input {
+    width: 100%;
+    padding: .6rem 1rem;
+    border-radius: .5rem;
+}
+
+.interest .pass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.interest .pass .btn {
+    background: rgb(255, 174, 25);
+    padding: .4rem 2rem;
+    color: #000;
+}
+
+.interest a {
+    text-decoration: none;
+    background: rgb(247, 222, 174);
+    color: orange;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    font-size: .8rem;
+    margin-right: 1rem;
+}
+
+.interest {
+    padding-bottom: 2rem;
+}
+
+.myProfile {
+    text-decoration: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pro {
+    background: #fff;
+    width: 60%;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+}
+
+.pro .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pro .head #close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.pro .pic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pro .pic span {
+    width: 30%;
+    width: 8rem;
+    height: 8rem;
+    line-height: 8rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* line-height: 7rem; */
+    text-align: center;
+    background: #c1c0c0;
+    margin-left: 2rem;
+}
+
+.pro .pic span i {
+    font-size: 3.5rem;
+    color: #fff;
+}
+
+.pro .pic .pic-details {
+    width: 75%;
+}
+
+.pro .pic .pic-details .input {
+    width: 100%;
+    margin: .5rem 0;
+}
+
+.pro .pic .pic-details .input p {
+    color: #777575;
+}
+
+.pro .pic .pic-details .input input {
+    width: 100%;
+    padding: .8rem 1rem;
+    border-radius: .5rem;
+    background: #ece9e9;
+}
+
+.pro .pic .pic-details .btn,
+.mypassword .newpass .btn,
+.inte .btn {
+    display: flex;
+    /* align-items: flex-start; */
+    justify-content: flex-end;
+    /* background-color: red; */
+    background: none;
+    border: none;
+    text-decoration: none;
+}
+
+.pro .pic .pic-details .btn .btn2,
+.mypassword .newpass .btn .btn2,
+.inte .btn .btn2 {
+    margin-left: 2rem;
+    padding: .5rem 1.8rem;
+    border-radius: .4rem;
+    background: rgb(206, 135, 3);
+    color: #fff;
+    cursor: pointer;
+}
+
+.pro .pic .pic-details .btn .btn1,
+.mypassword .newpass .btn .btn1,
+.inte .btn .btn1 {
+    /* margin-left: 2rem; */
+    padding: .5rem 1.5rem;
+    border-radius: .4rem;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pro .pic .pic-details .btn .btn1:hover,
+.mypassword .newpass .btn .btn1:hover,
+.inte .btn .btn1:hover {
+    background: #2f2f2f;
+}
+
+.pro .pic .pic-details .btn .btn2:hover,
+.mypassword .newpass .btn .btn2:hover,
+.inte .btn .btn2:hover {
+    background: rgb(241, 170, 37);
+}
+
+.mypassword {
+    text-decoration: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.newpass {
+    background: #fff;
+    width: 50%;
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+}
+
+.mypassword .newpass .input {
+    margin: 1rem 0;
+}
+.mypassword .newpass .input p{
+    color: #000;
+}
+
+.mypassword .newpass .input input {
+    width: 100%;
+    padding: .8rem;
+    background: #ece9e9;
+    border-radius: .5rem;
+    margin-top: .4rem;
+}
+
+.myinterest {
+    text-decoration: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.inte {
+    background: #fff;
+    padding: 2.5rem 1rem;
+    width: 40%;
+    border-radius: 1rem;
+}
+
+.inte .course {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: .5rem 0;
+}
+
+.inte .course a {
+    background: #ece9e9;
+    width: 50%;
+    padding: .8rem 1.5rem;
+    margin: .5rem .7rem;
+    border-radius: .5rem;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+.inte .course a:hover {
+    background: orangered;
+    color: #fff;
+}
+
+.inte .btn {
+    margin-top: 1rem;
+    margin-right: .5rem;
+}
+/* ---------------------------------------------------------------------- */
+@media(max-width:1024px) {
+    .pro {
+        width: 70%;
+        padding: .5rem .8rem;
+        border-radius: 1rem;
+    }
+
+    .pro .pic span {
+        margin-left: 1rem;
+    }
+    .pro .pic .pic-details .input p{
+        margin-bottom: 0rem;
+        font-size: 1rem;
+    }
+    .pro .pic .pic-details .input {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+}
+@media(max-width:768px) {
+    .inte .course a {
+        font-size: .8rem;
+    }
+
+    .inte {
+        width: 70%;
+    }
+
+    .inte .course {
+        margin: 0rem 0;
+    }
+
+    .inte .course a {
+        font-size: .8rem;
+        padding: .9rem .7rem;
+        width: 60%;
+        margin: .5rem .3rem;
+    }
+
+    .inte .btn {
+        margin-right: .5rem;
+        margin-top: .5rem;
+    }
+
+    .inte .btn .btn1 {
+        margin-left: 2rem;
+        padding: .3rem 1.8rem;
+    }
+
+    .inte .btn .btn2 {
+        margin-left: .5rem;
+        padding: .3rem 1.9rem;
+    }
+
+    .pro {
+        width: 90%;
+        padding: .5rem .8rem;
+        border-radius: 1rem;
+    }
+
+    .pro .pic span {
+        margin-left: 1rem;
+    }
+
+    .pro .pic .pic-details .input input {
+        width: 100%;
+        padding: .5rem 1rem;
+        border-radius: .5rem;
+        background: #ece9e9;
+        font-size: .9rem;
+    }
+
+    .pro .pic .pic-details .input {
+        width: 100%;
+        margin: 0.8rem 0;
+    }
+    .pro .pic .pic-details .input p{
+        margin-bottom: 0rem;
+        font-size: .9rem;
+    }
+
+    .myprofile .pro .head h2 {
+        font-size: .6rem;
+    }
+    .newpass {
+        width: 70%;
+        padding: 1rem 1.5rem;
+        border-radius: 1rem;
+    }
+    /* .header .left a{
+        display: none;
+    } */
+    .header .right #use{
+        display: none;
+    }
+    .header .right .bell span{
+        display: none;
+    }
+    .header .right a{
+        display: none;
+    }
+    .header .right .in input {
+       display: none;
+    }
+    .header .right .in {
+        width: 0rem;
+        padding: .3rem 0rem;
+        border-radius: 10px;
+    
+    }
+    .header .right .full{
+        display: none;
+    }
+    .header .right .fullbell{
+        display: none;
+    }
+    .header .right {
+        width: 20%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .header .left .Browse{
+        margin-left: 18rem;
+    }
+    .header .left .Browse #Browse{
+        font-size: .8rem;
+    }
+    .con {
+        margin-top: 11.5rem;
+       
+    }
+
+}
+
+/* ---------------------------------------------------------------- */
+@media(max-width:450px) {
+    .inte .course a {
+        font-size: .8rem;
+        padding: .8rem .5rem;
+        width: 60%;
+        margin: .5rem .3rem;
+    }
+
+    .inte {
+        width: 95%;
+        padding: 1rem .2rem;
+    }
+
+    .inte .course {
+
+        margin: -.2rem 0;
+    }
+
+    .inte .btn .btn2 {
+        margin-left: .5rem;
+        padding: .3rem 1.9rem;
+    }
+
+    .inte .btn .btn1 {
+        margin-left: 2rem;
+        padding: .3rem 1.8rem;
+    }
+
+    .inte .btn {
+        margin-right: .5rem;
+        margin-top: .5rem;
+    }
+
+    .pro .pic {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .pro {
+        width: 90%;
+        padding: .5rem .8rem;
+        border-radius: 1rem;
+    }
+
+    .pro .pic .pic-details {
+        width: 100%;
+    }
+
+    .pro .pic .pic-details .input input {
+        width: 100%;
+        padding: .5rem;
+        border-radius: .5rem;
+        background: #ece9e9;
+    }
+
+    .pro .pic .pic-details .input {
+        width: 100%;
+        margin: .9rem 0;
+    }
+
+    .pro .head h2 {
+        font-size: 1rem;
+    }
+
+    .pro .head #close {
+        font-size: 1rem;
+    }
+
+    .pro .pic span {
+        margin-left: 0rem;
+        width: 5rem;
+        height: 5rem;
+        line-height: 5rem;
+        margin-top: .5rem;
+    }
+
+    .pro .pic span i {
+        font-size: 2.5rem;
+        color: #fff;
+    }
+
+    .pro .pic .pic-details .input p {
+        font-size: .8rem;
+    }
+    .newpass {
+        width: 93%;
+        padding: 1rem .5rem;
+        border-radius: 1rem;
+    }
+
+    .mypassword .newpass .input {
+        margin: .5rem 0;
+    }
+
+    .mypassword .newpass .input input {
+        padding: .5rem 1rem;
+    }
+
+    .mypassword .newpass .input p {
+        font-size: .8rem;
+    }
+
+    .mypassword .newpass .btn {
+        margin-top: .8rem;
+    }
+
+    .mypassword .newpass .btn .btn1 {
+        padding: .4rem 1.5rem;
+    }
+
+    .mypassword .newpass .btn .btn2 {
+        padding: .4rem 1.8rem;
+        margin-left: 1rem;
+    }
+    .con{
+        padding: 2rem .6rem;
+    }
+    .interest .pass h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .interest .pass .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .interest a{
+        font-size: .6rem;
+    }
+    .password .pass h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .password  .pass .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .password .pass {
+        margin-bottom: 0rem;
+    }
+    .password .input span {
+        display: block;
+        padding: 0rem 0;
+        color: #868585;
+        font-weight: 400;
+        background: rgb(220, 239, 243);
+    }
+    .password .input input {
+        width: 100%;
+        padding: .6rem 1rem;
+        border-radius: .5rem;
+    }
+    .personal .per h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .personal .per .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .personal .per {
+        margin-bottom: .5rem;
+        align-items: center;
+        display: flex;
+    }
+    .personal form .inputBox {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+    }
+    .personal form .inputBox .input {
+        width: 100%;
+        background: #fff;
+    }
+    .personal form .inputBox .input span {
+        display: block;
+        padding: .5rem 0;
+        font-weight: 400;
+        background: rgb(220, 239, 243);
+        font-size: .8rem;
+    }
+    .personal form .inputBox .input #education {
+       font-size: .8rem;
+    }
+    .web .web-details h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .con .web .web-details .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .web form .inputBox {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .web form .inputBox .input {
+        width: 100%
+    }
+    .con .web .web-details {
+        margin-bottom: 0rem;
+    }
+    .web form .inputBox .input span {
+        display: block;
+        padding: .5rem 0;
+        font-weight: 400;
+    }
+    .map h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .about .abo h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .con .about .abo .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .con {
+        margin-top: 11.5rem;
+    }
+    .profile .left span {
+        width: 3.5rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        text-align: center;
+        background: #c1c0c0;
+        margin-right: 1rem;
+        border-radius: 50%;
+    }
+    .profile .left span i {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-top: 1rem;
+    }
+    .profile{
+        padding: 0 .5rem;
+    }
+    .profile .right{
+        display: none;
+    }
+    .profile .details p{
+        font-size: 1rem;
+    }
+    .profile .details h4{
+        font-size: 1rem;
+        margin-top: -.2rem;
+    }
+    .header .left a{
+        display: none;
+    }
+    .header .right #use{
+        display: none;
+    }
+    .header .right .bell span{
+        display: none;
+    }
+    .header .right a{
+        display: none;
+    }
+    .header .right .in input {
+       display: none;
+    }
+    .header .right .in {
+        width: 0rem;
+        padding: .3rem 0rem;
+        border-radius: 10px;
+    
+    }
+    .header .right .full{
+        display: none;
+    }
+    .header .right .fullbell{
+        display: none;
+    }
+    .header .right {
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .header .left .Browse{
+        margin-left: 2.5rem;
+    }
+    .header .left .Browse #Browse{
+        font-size: .8rem;
+    }
+    .profile .left  #pen{
+        font-size: .6rem;
+        left: 1.1rem;
+        top: 2.9rem;
+    }
+
+}
+
+@media(max-width:320px) {
+    .inte .course {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: -.1rem 0;
+    }
+
+    .inte .course a {
+        width: 100%;
+        margin: .4rem 0;
+        padding: .6rem;
+        font-size: .7rem;
+    }
+
+    .inte {
+        width: 95%;
+        padding: 1rem .8rem;
+    }
+
+    .inte .btn {
+        margin-right: 1rem;
+        margin-top: .5rem;
+    }
+
+    .inte .btn .btn2 {
+        margin-left: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .inte .btn .btn1 {
+        margin-left: 2rem;
+        padding: .4rem 1.5rem;
+    }
+
+    .pro .pic {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .pro {
+        width: 90%;
+        padding: .5rem .8rem;
+        border-radius: 1rem;
+    }
+
+    .pro .pic .pic-details {
+        width: 100%;
+    }
+
+    .pro .pic .pic-details .input input {
+        width: 100%;
+        padding: .5rem;
+        border-radius: .5rem;
+        background: #ece9e9;
+    }
+
+    .pro .pic .pic-details .input {
+        width: 100%;
+        margin: .5rem 0;
+    }
+
+    .pro .head h2 {
+        font-size: 1rem;
+    }
+
+    .pro .head #close {
+        font-size: 1rem;
+    }
+
+    .pro .pic span {
+        margin-left: 0rem;
+        width: 5rem;
+        height: 5rem;
+        line-height: 5rem;
+        margin-top: .5rem;
+    }
+
+    .pro .pic span i {
+        font-size: 2.5rem;
+        color: #fff;
+    }
+
+    .pro .pic .pic-details .input p {
+        font-size: .8rem;
+    }
+
+    .newpass {
+        width: 93%;
+        padding: 1rem .5rem;
+        border-radius: 1rem;
+    }
+
+    .mypassword .newpass .input {
+        margin: .5rem 0;
+    }
+
+    .mypassword .newpass .input input {
+        padding: .5rem 1rem;
+    }
+
+    .mypassword .newpass .input p {
+        font-size: .8rem;
+    }
+
+    .mypassword .newpass .btn {
+        margin-top: .8rem;
+    }
+
+    .mypassword .newpass .btn .btn1 {
+        padding: .4rem 1.5rem;
+    }
+
+    .mypassword .newpass .btn .btn2 {
+        padding: .4rem 1.8rem;
+        margin-left: 1rem;
+    }
+    .con{
+        padding: 2rem .6rem;
+    }
+    .interest .pass h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .interest .pass .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .interest a{
+        font-size: .6rem;
+    }
+    .password .pass h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .password  .pass .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .password .pass {
+        margin-bottom: 0rem;
+    }
+    .password .input span {
+        display: block;
+        padding: 0rem 0;
+        color: #868585;
+        font-weight: 400;
+        background: rgb(220, 239, 243);
+    }
+    .password .input input {
+        width: 100%;
+        padding: .6rem 1rem;
+        border-radius: .5rem;
+    }
+    .personal .per h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .personal .per .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .personal .per {
+        margin-bottom: .5rem;
+        align-items: center;
+        display: flex;
+    }
+    .personal form .inputBox {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+    }
+    .personal form .inputBox .input {
+        width: 100%;
+        background: #fff;
+    }
+    .personal form .inputBox .input span {
+        display: block;
+        padding: .5rem 0;
+        font-weight: 400;
+        background: rgb(220, 239, 243);
+        font-size: .8rem;
+    }
+    .personal form .inputBox .input #education {
+       font-size: .8rem;
+    }
+    .web .web-details h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .con .web .web-details .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .web form .inputBox {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .web form .inputBox .input {
+        width: 100%
+    }
+    .con .web .web-details {
+        margin-bottom: 0rem;
+    }
+    .web form .inputBox .input span {
+        display: block;
+        padding: .5rem 0;
+        font-weight: 400;
+    }
+    .map h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .about .abo h5{
+        margin-top: 0.6rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+    .con .about .abo .btn{
+        padding: .1rem 1.6rem;
+        color: #fff;
+        font-size: .9rem;
+    }
+    .con {
+        margin-top: 11.5rem;
+    }
+    .profile .left span {
+        width: 3.5rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        text-align: center;
+        background: #c1c0c0;
+        margin-right: 1rem;
+        border-radius: 50%;
+    }
+    .profile .left span i {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-top: 1rem;
+    }
+    .profile{
+        padding: 0 .5rem;
+    }
+    .profile .right{
+        display: none;
+    }
+    .profile .details p{
+        font-size: 1rem;
+    }
+    .profile .details h4{
+        font-size: 1rem;
+        margin-top: -.2rem;
+    }
+    .header .left a{
+        display: none;
+    }
+    .header .right #use{
+        display: none;
+    }
+    .header .right .bell span{
+        display: none;
+    }
+    .header .right a{
+        display: none;
+    }
+    .header .right .in input {
+       display: none;
+    }
+    .header .right .in {
+        width: 0rem;
+        padding: .3rem 0rem;
+        border-radius: 10px;
+    
+    }
+    .header .right .full{
+        display: none;
+    }
+    .header .right .fullbell{
+        display: none;
+    }
+    .header .right {
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .header .left .Browse{
+        margin-left: 2.5rem;
+    }
+    .header .left .Browse #Browse{
+        font-size: .8rem;
+    }
+    .profile .left  #pen{
+        font-size: .8rem;
+        padding: .3rem .3rem;
+        background: #000;
+        color: #fff;
+        position: absolute;
+        left: 1.2rem;
+        top: 3rem;
+        border-radius: 50px;
+    }
+}
+
